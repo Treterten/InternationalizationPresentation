@@ -1,20 +1,111 @@
-const currentDate = new Date();
-const formatter = new Intl.DateTimeFormat('en-us');
-const formattedDate = formatter.format(currentDate);
-console.log(formattedDate) // Displays the current date as MM-DD-YYYY
+/*
+=========================================
+██████╗░░█████╗░████████╗███████╗░██████╗
+██╔══██╗██╔══██╗╚══██╔══╝██╔════╝██╔════╝
+██║░░██║███████║░░░██║░░░█████╗░░╚█████╗░
+██║░░██║██╔══██║░░░██║░░░██╔══╝░░░╚═══██╗
+██████╔╝██║░░██║░░░██║░░░███████╗██████╔╝
+╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝╚═════╝░
+==========================================
+*/
 
-const currentTime = new Date();
-setTimeout(() => {
-  const newTime = new Date();
-  const relativeFormatter = new Intl.RelativeTimeFormat('en-us');
-  console.log(relativeFormatter.format((currentTime - newTime) / 1000, 'second'));
-}, 2000)
 
-const amount = 213267;
+// const currentDate = new Date();
+// const formatter = new Intl.DateTimeFormat('en-us');
+// const formattedDate = formatter.format(currentDate);
+// console.log(formattedDate) // Displays the current date as MM-DD-YYYY
+// ==========================================================================================
+// const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+// const longerFormattedDate = new Intl.DateTimeFormat('en-us', options).format(currentDate);
+// console.log(longerFormattedDate);
 
-const Euros = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
-const Yen = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' });
-const Dollars = new Intl.NumberFormat('en-us', {style: 'currency', currency: 'USD'});
-console.log(Euros.format(amount))
-console.log(Yen.format(amount))
-console.log(Dollars.format(amount))
+/*
+===============================
+████████╗██╗███╗░░░███╗███████╗
+╚══██╔══╝██║████╗░████║██╔════╝
+░░░██║░░░██║██╔████╔██║█████╗░░
+░░░██║░░░██║██║╚██╔╝██║██╔══╝░░
+░░░██║░░░██║██║░╚═╝░██║███████╗
+░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝╚══════╝
+===============================
+*/
+
+// const currentTime = Date.now();
+// const options = {hour: 'numeric', minute: 'numeric', hour12: false};
+// // const options = {hour: 'numeric', minute: 'numeric'};
+// const formattedTime = new Intl.DateTimeFormat('en', options).format(currentTime);
+// console.log(formattedTime);
+
+/*
+==============================================================================================
+██████╗░███████╗██╗░░░░░░█████╗░████████╗██╗██╗░░░██╗███████╗  ████████╗██╗███╗░░░███╗███████╗
+██╔══██╗██╔════╝██║░░░░░██╔══██╗╚══██╔══╝██║██║░░░██║██╔════╝  ╚══██╔══╝██║████╗░████║██╔════╝
+██████╔╝█████╗░░██║░░░░░███████║░░░██║░░░██║╚██╗░██╔╝█████╗░░  ░░░██║░░░██║██╔████╔██║█████╗░░
+██╔══██╗██╔══╝░░██║░░░░░██╔══██║░░░██║░░░██║░╚████╔╝░██╔══╝░░  ░░░██║░░░██║██║╚██╔╝██║██╔══╝░░
+██║░░██║███████╗███████╗██║░░██║░░░██║░░░██║░░╚██╔╝░░███████╗  ░░░██║░░░██║██║░╚═╝░██║███████╗
+╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░╚═╝░░░╚══════╝  ░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝╚══════╝
+==============================================================================================
+*/
+
+// const currentTime = new Date();
+// setTimeout(() => {
+//   const newTime = new Date();
+//   const relativeFormatter = new Intl.RelativeTimeFormat('en-us');
+//   console.log(relativeFormatter.format((currentTime - newTime) / 1000, 'second'));
+// }, 2000)
+
+/*
+==================================================================================
+███╗░░██╗██╗░░░██╗███╗░░░███╗██████╗░███████╗██████╗░
+████╗░██║██║░░░██║████╗░████║██╔══██╗██╔════╝██╔══██╗
+██╔██╗██║██║░░░██║██╔████╔██║██████╦╝█████╗░░██████╔╝
+██║╚████║██║░░░██║██║╚██╔╝██║██╔══██╗██╔══╝░░██╔══██╗
+██║░╚███║╚██████╔╝██║░╚═╝░██║██████╦╝███████╗██║░░██║
+╚═╝░░╚══╝░╚═════╝░╚═╝░░░░░╚═╝╚═════╝░╚══════╝╚═╝░░╚═╝
+
+███████╗░█████╗░██████╗░███╗░░░███╗░█████╗░████████╗████████╗██╗███╗░░██╗░██████╗░
+██╔════╝██╔══██╗██╔══██╗████╗░████║██╔══██╗╚══██╔══╝╚══██╔══╝██║████╗░██║██╔════╝░
+█████╗░░██║░░██║██████╔╝██╔████╔██║███████║░░░██║░░░░░░██║░░░██║██╔██╗██║██║░░██╗░
+██╔══╝░░██║░░██║██╔══██╗██║╚██╔╝██║██╔══██║░░░██║░░░░░░██║░░░██║██║╚████║██║░░╚██╗
+██║░░░░░╚█████╔╝██║░░██║██║░╚═╝░██║██║░░██║░░░██║░░░░░░██║░░░██║██║░╚███║╚██████╔╝
+╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░░░╚═╝░░░╚═╝╚═╝░░╚══╝░╚═════╝░
+==================================================================================
+*/
+
+// const amount = 213267;
+
+// const Euros = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
+// const Yen = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' });
+// const Dollars = new Intl.NumberFormat('en-us', {style: 'currency', currency: 'USD'});
+// console.log(Euros.format(amount))
+// console.log(Yen.format(amount))
+// console.log(Dollars.format(amount))
+
+/*
+============================================================================================
+██████╗░██╗░░░░░██╗░░░██╗██████╗░░█████╗░██╗░░░░░  ██████╗░██╗░░░██╗██╗░░░░░███████╗░██████╗
+██╔══██╗██║░░░░░██║░░░██║██╔══██╗██╔══██╗██║░░░░░  ██╔══██╗██║░░░██║██║░░░░░██╔════╝██╔════╝
+██████╔╝██║░░░░░██║░░░██║██████╔╝███████║██║░░░░░  ██████╔╝██║░░░██║██║░░░░░█████╗░░╚█████╗░
+██╔═══╝░██║░░░░░██║░░░██║██╔══██╗██╔══██║██║░░░░░  ██╔══██╗██║░░░██║██║░░░░░██╔══╝░░░╚═══██╗
+██║░░░░░███████╗╚██████╔╝██║░░██║██║░░██║███████╗  ██║░░██║╚██████╔╝███████╗███████╗██████╔╝
+╚═╝░░░░░╚══════╝░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝  ╚═╝░░╚═╝░╚═════╝░╚══════╝╚══════╝╚═════╝░
+============================================================================================
+*/
+
+// var pr = new Intl.PluralRules('en-us', { type: 'ordinal' });
+// const place = function(number) {
+//   const rules = {
+//     other: 'th',
+//     one: 'st',
+//     two: 'nd',
+//     few: 'rd',
+//   };
+//   return number + rules[pr.select(number)]
+// }
+// console.log(place(0));
+// console.log(place(1));
+// console.log(place(2));
+// console.log(place(3));
+// console.log(place(4));
+// console.log(place(45));
+// console.log(place(31));
