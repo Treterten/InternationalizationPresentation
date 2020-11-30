@@ -1,4 +1,22 @@
 /*
+========================================================
+██╗░░░░░░█████╗░░█████╗░░█████╗░██╗░░░░░███████╗░██████╗
+██║░░░░░██╔══██╗██╔══██╗██╔══██╗██║░░░░░██╔════╝██╔════╝
+██║░░░░░██║░░██║██║░░╚═╝███████║██║░░░░░█████╗░░╚█████╗░
+██║░░░░░██║░░██║██║░░██╗██╔══██║██║░░░░░██╔══╝░░░╚═══██╗
+███████╗╚█████╔╝╚█████╔╝██║░░██║███████╗███████╗██████╔╝
+╚══════╝░╚════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═════╝░
+========================================================
+ */
+
+const USEng = new Intl.Locale('en-US');
+const CAEng = new Intl.Locale('en-CA');
+const German = new Intl.Locale('de-DE');
+const Japanese = new Intl.Locale('ja-JA');
+
+
+
+/*
 =========================================
 ██████╗░░█████╗░████████╗███████╗░██████╗
 ██╔══██╗██╔══██╗╚══██╔══╝██╔════╝██╔════╝
@@ -11,10 +29,13 @@
 
 
 // const currentDate = new Date();
-// const formatter = new Intl.DateTimeFormat('en-us');
+
+// const formatter = new Intl.DateTimeFormat(USEng);
 // const formattedDate = formatter.format(currentDate);
 // console.log(formattedDate) // Displays the current date as MM-DD-YYYY
+
 // ==========================================================================================
+
 // const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
 // const longerFormattedDate = new Intl.DateTimeFormat('en-us', options).format(currentDate);
 // console.log(longerFormattedDate);
@@ -31,8 +52,10 @@
 */
 
 // const currentTime = Date.now();
+// 24 Hour Time:
 // const options = {hour: 'numeric', minute: 'numeric', hour12: false};
-// // const options = {hour: 'numeric', minute: 'numeric'};
+// 12 Hour Time:
+// const options = {hour: 'numeric', minute: 'numeric'};
 // const formattedTime = new Intl.DateTimeFormat('en', options).format(currentTime);
 // console.log(formattedTime);
 
@@ -51,7 +74,8 @@
 // setTimeout(() => {
 //   const newTime = new Date();
 //   const relativeFormatter = new Intl.RelativeTimeFormat('en-us');
-//   console.log(relativeFormatter.format((currentTime - newTime) / 1000, 'second'));
+//   const secondsAgo = relativeFormatter.format((currentTime - newTime) / 1000, 'second');
+//   console.log(secondsAgo);
 // }, 2000)
 
 /*
@@ -74,9 +98,9 @@
 
 // const amount = 213267;
 
-// const Euros = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
-// const Yen = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' });
-// const Dollars = new Intl.NumberFormat('en-us', {style: 'currency', currency: 'USD'});
+// const Euros = new Intl.NumberFormat(German, { style: 'currency', currency: 'EUR' });
+// const Yen = new Intl.NumberFormat(Japanese, { style: 'currency', currency: 'JPY' });
+// const Dollars = new Intl.NumberFormat(USEng, {style: 'currency', currency: 'USD'});
 // console.log(Euros.format(amount))
 // console.log(Yen.format(amount))
 // console.log(Dollars.format(amount))
@@ -93,6 +117,16 @@
 */
 
 // var pr = new Intl.PluralRules('en-us', { type: 'ordinal' });
+
+// console.log(pr.select(0))
+// console.log(pr.select(1))
+// console.log(pr.select(2))
+// console.log(pr.select(3))
+// console.log(pr.select(4))
+// console.log(pr.select(63))
+
+// ================================================================
+
 // const place = function(number) {
 //   const rules = {
 //     other: 'th',
